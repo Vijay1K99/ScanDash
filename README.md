@@ -10,6 +10,10 @@ The project is designed to work with a cron job that runs the Nmap command at re
 - Data representation in the form of graphs, pie charts, and tables
 - Automatic updates via cron job
 
+![User Signup - Google Chrome 31-05-2024 23_21_00](https://github.com/Vijay1K99/ScanDash/assets/139844971/85e7aea5-59e6-4498-8053-fbead4f241e0)
+
+![User Signup - Google Chrome 31-05-2024 23_21_32](https://github.com/Vijay1K99/ScanDash/assets/139844971/2262fe21-579e-402c-8e31-754df6fbeed9)
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
@@ -78,9 +82,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 - [Django](https://www.djangoproject.com/)
 - [Crontab](https://man7.org/linux/man-pages/man5/crontab.5.html)
 
-![User Signup - Google Chrome 31-05-2024 23_21_00](https://github.com/Vijay1K99/ScanDash/assets/139844971/85e7aea5-59e6-4498-8053-fbead4f241e0)
 
-![User Signup - Google Chrome 31-05-2024 23_21_32](https://github.com/Vijay1K99/ScanDash/assets/139844971/2262fe21-579e-402c-8e31-754df6fbeed9)
 
 
 
