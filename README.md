@@ -78,3 +78,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 - [Django](https://www.djangoproject.com/)
 - [Crontab](https://man7.org/linux/man-pages/man5/crontab.5.html)
 
+![User Signup - Google Chrome 31-05-2024 23_21_00](https://github.com/Vijay1K99/ScanDash/assets/139844971/85e7aea5-59e6-4498-8053-fbead4f241e0)
+
+
