@@ -73,7 +73,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## Contact
 
 Your Email - kumarvj448@gmail.com
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/your_username/repo_name](https://github.com/Vijay1K99/ScanDash)
 
 ## Acknowledgements
 
