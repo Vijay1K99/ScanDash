@@ -1,0 +1,48 @@
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{% static 'project/css/bootstrap.css' %}">
+        <link rel="stylesheet" href="{% static 'project/css/style.css' %}">
+        <title>User Signup</title>
+        <style>
+            #grad1 {
+                background-image: linear-gradient(to top, #958E69 , #000000);
+              }
+        </style>
+    </head>
+    <body>
+        <div class="container1" id="grad1">
+            {% if messages %}
+            {% for message in messages %}
+             <p {% if message.tags %} class="alert alert-{{message.tags}} mt-3 p-2  {% endif %}" >{{message}} </p>
+            {% endfor %}
+            {% endif %}
+            <div class="signup">
+                <h4 class="head1 fs-1 pt-3 text-white">Sign Up</h4> <br>
+                <form action="" method="post" novalidate>  
+                    {% csrf_token %}
+                    {% for fm in form %}
+                    <div class="form-group">{{fm.label_tag}} {{fm}} <small class="text-danger"> {{fm.errors|striptags}}</small>
+                    </div>
+                    {% endfor %}     
+                    <input type="submit" value="Submit" class="submit btn btn-primary">                
+                {% if form.non_field.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                    <p class="alert alert-danger my-3">{{error}}</p>
+                    {% endfor %}
+                {% endif %}
+                </form>
+                <a href="{% url 'login' %}" class="button2 btn btn-primary ">Login</a>
+
+            </div>
+            </div>
+
+
+        <script src="{% static 'project/js/bootstrap.js' %}"></script>
+        <script src="{% static 'project/js/jquery.js' %}"></script>
+        <script src="{% static 'project/js/popper.js' %}"></script>
+    </body>
+    </html>
+    

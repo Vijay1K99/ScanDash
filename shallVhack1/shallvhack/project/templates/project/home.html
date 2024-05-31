@@ -1,0 +1,33 @@
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'project/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'project/css/style.css' %}">
+    <title>Home Page</title>
+    <style>
+        #grad1 {
+            background-image: linear-gradient(to top, #958E69 , #000000);
+          }
+    </style>
+</head>
+<body>
+           <div id="grad1">
+            <h1 class="homepage text-white text-center p-2" >Welcome To ScanDash</h1>
+        <div class="main1 d-flex" >
+            <div class="left1">
+                <h1 class="homehead text-white text-center">Welcome !</h1>
+                <h5 class="homehead1 text-white text-center">Don't Have an Account ?</h5>
+                <a href="{% url 'signup' %}" class="sign1 btn btn-primary">Sign Up</a>
+                <h6 class="headd2 text-white">Already have an account? <a href="{% url 'login' %}" class="button1 btn-primary p-2">Login</a></h6>           
+            </div>
+            <div class="right1"> 
+                <img src="{% static 'project/images/image.png' %}" alt="">
+            </div>
+        </div>
+        </div>
+    
+    
+</body>
+</html>

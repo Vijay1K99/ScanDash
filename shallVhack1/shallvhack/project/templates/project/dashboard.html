@@ -1,0 +1,275 @@
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'project/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'project/css/style.css' %}">
+    <title>User Dashboard</title>
+    <style>
+        #grad1 {
+            background-image: linear-gradient(to top, #958E69, #000000);
+        }
+
+
+        table {
+            width: 98%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid black;
+            padding: 4px;
+            /* Reduced padding */
+            text-align: left;
+            line-height: 1;
+            /* Minimized line-height */
+        }
+
+        th {
+            background-color: #353434;
+            color: white;
+        }
+
+        tr {
+            background-color: #353434;
+            color: white;
+        }
+    </style>
+
+
+
+<body>
+
+    <div class="parent d-flex" id="grad1">
+        <div class="sidenav">
+            {% comment %} <div>
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <p {% if message.tags %} class="alert alert-{{ message.tags }} mt-3 p-2 {% endif %}">{{ message }}
+                    </p>
+                    {% endfor %}
+                    {% endif %}
+            </div> {% endcomment %}
+            <div class="head fs-2 text-white p-3">ScanDash</div>
+            {% comment %} <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#about"> <i
+                        class='me-3 fas fa-envelope-open-text text-white '></i></a> Dashboard</div> {% endcomment %}
+            {% comment %} <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#services"> <i
+                        class="me-3 fa fa-fw fa-envelope text-white"></i></a>Logs</div>
+            <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#clients"> <i
+                        class="me-4 fa fa-calendar text-white" aria-hidden="true"></i></a>Invites</div>
+            <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#contact"> <i
+                        class='me-3 fas fa-envelope-open-text text-white'></i></a>Storm-Breaker</div>
+            <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#contact"><i
+                        class='me-3 fas fa-envelope-open-text text-white'></i></a>Hunter</div>
+            <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#contact"><i
+                        class="me-3 fa fa-calendar text-white" aria-hidden="true"></i></a>Malware</div>
+            <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#contact"><i
+                        class='me-3 fas fa-envelope-open-text text-white'></i></a>Phising</div>
+            <div class="side ps-5 mt-5 text-decoration-none text-white"><a href="#contact"><i
+                        class='me-3 fas fa-envelope-open-text text-white'></i></a>OSINT</div> {% endcomment %}
+        </div>
+        <div class="main">
+            <nav class="navbar">
+                <div class="container">
+                    <a class="navbar-brand text-white fs-2 ms-4 ">DashBoard</a>
+                    <form>
+                        <div class="search d-flex">
+                            <input class="form-control me-2 p-2" type="text" placeholder="Search..."
+                                aria-label="Search" />
+                            <button class="sicon bg-light">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="icon d-flex">
+                        <div class="icn1 text-white"> <i class="fa-solid fa-gear"></i></div>
+                        <div class="icn2 text-white"> <i class="fa-regular fa-bell"></i></div>
+                        <div class="icn3 text-white"> <i class="fa-solid fa-info"></i></div>
+                    </div>
+                </div>
+            </nav>
+            <div class="box d-flex gap-5">
+                <div class="box1 text-white d-flex">
+                    <div class="first A ">
+                        <i class="fa-solid fa-plug-circle-check"></i>
+                    </div>
+                    <div class="second">
+                        <h6>No.Of Live IPs</h6>
+                        <h6> {{ total_ips }}</h6>
+                    </div>
+                </div>
+
+                <div class="box1 text-white d-flex">
+                    <div class="first B ">
+                        <i class="fa-solid fa-door-open"></i>
+                    </div>
+                    <div class="second">
+                        <h6>No.Of Open Ports</h6>
+                        <h6> {{ total_ports }}</h6>
+                    </div>
+                </div>
+
+                <div class="box1 text-white d-flex">
+                    <div class="first C ">
+                        <i class="fa-solid fa-filter"></i>
+                    </div>
+                    <div class="second">
+                        <h6>Filtered Ports</h6>
+                        <h6>{{ filtered_word_count }}</h6>
+                    </div>
+                </div>
+                <div class="box1 text-white d-flex">
+                    <div class="first D ">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div class="second">
+                        <h6>No.Of scans</h6>
+                        <h6>{{ num_xml_files }}</h6>
+                    </div>
+                </div>
+            </div>
+            <div class="tabel">
+                <div>
+                    <h4 class="hd text-white ms-3 p-2"> ScanDash Report</h4>
+                    <hr>
+                    <canvas id="myChart" style="width:100%;max-width:600px"></canvas>
+                </div>
+            </div>
+            <div class="scaninfo">
+                <div class="pie2">
+                    <div id="piechart">
+                    </div>
+                </div>
+            </div>
+
+            {% comment %} Tabel Two {% endcomment %}
+            <div class="tablee2">
+                <table>
+                    <thead>
+                        <tr>
+                            {% for col in header %}
+                            <th>{{ col }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in csv_data %}
+                        <tr>
+                            {% for cell in row %}
+                            <td>{{ cell }}</td>
+                            {% endfor %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% comment %} Tabel Two {% endcomment %}
+        </div>
+    </div>
+    <a href="{% url 'logout' %}" class="lgout btn btn-primary">Logout</a>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        // Load google charts
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        // Draw the chart and set the chart values
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable([
+                ['Task', 'Hours per Day'],
+                ['No.Of Live IPs', {{ total_ips }}],
+                ['No.Of Open Ports', {{ total_ports }}],
+                ['Filtered Ports', {{ filtered_word_count }}],
+                ['No.of scans', {{ num_xml_files }}]
+    ]);
+
+        // Set chart options, including text color and background color
+        var options = {
+            'title': 'Pie Chart',
+            'width': 550,
+            'height': 408,
+            'backgroundColor': '#333333',  // Dark gray background
+            'titleTextStyle': {
+                'color': '#FFFFFF',  // White text for title
+            },
+            'legend': {
+                'textStyle': {
+                    'color': '#FFFFFF',  // White text for legend
+                },
+            },
+            'pieSliceTextStyle': {
+                'color': '#FFFFFF',  // White text on pie slices
+            },
+        };
+
+        // Display the chart inside the <div> element with id="piechart"
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+        chart.draw(data, options);
+  }
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const ctx = document.getElementById('myChart').getContext('2d');
+        
+            // Data for the chart
+            const data = [{{ total_ips }}, {{ total_ports }}, {{ filtered_word_count }}, {{ num_xml_files }}];
+        
+            // Find the maximum value in the data to adjust the y-axis max value
+            const maxValue = Math.max(...data);
+        
+            // Create the chart
+            const myChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['IPs', 'Ports', 'Filtered Ports', 'Scan Files'],
+                    datasets: [{
+                        label: 'Scan Report',
+                        data: data,
+                        fill: false,
+                        borderColor: 'red',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: maxValue + 1, // Adjust the maximum value as needed
+                            ticks: {
+                                stepSize: 1 // Adjust this value to control the number of ticks
+                            }
+                        }
+                    },
+                    plugins: {
+                        // Add custom plugin for total number of items
+                        afterDraw: (chart) => {
+                            const totalItems = data.length;
+                            const ctx = chart.ctx;
+                            ctx.save();
+                            ctx.font = '16px Arial';
+                            ctx.textAlign = 'center';
+                            ctx.fillStyle = 'black';
+                            ctx.fillText(`Total Data Points: ${totalItems}`, chart.width / 2, chart.height - 10);
+                            ctx.restore();
+                        }
+                    }
+                }
+            });
+        });
+          
+    </script>
+
+    </script>
+    <script src="{% static 'project/js/bootstrap.js' %}"></script>
+    <script src="{% static 'project/js/jquery.js' %}"></script>
+    <script src="{% static 'project/js/popper.js' %}"></script>
+</body>
+
+</html>

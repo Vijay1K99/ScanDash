@@ -1,0 +1,12 @@
+IP,  Host,OS,Proto,Port,Service,Product,Service FP,NSE Script ID,NSE Script Output,Notes
+192.168.1.1,,Linux 3.2 - 4.9,tcp,21,ftp,GNU Inetutils FTPd,,,,
+192.168.1.1,,Linux 3.2 - 4.9,tcp,80,http,Boa HTTPd,,,,
+192.168.1.1,,Linux 3.2 - 4.9,tcp,443,http,Boa HTTPd,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,88,kerberos-sec,Heimdal Kerberos,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,445,microsoft-ds,,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,5000,rtsp,,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,5900,vnc,Apple remote desktop vnc,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,7000,rtsp,,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,7000,filtered,,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,7000,filtered,,,,,
+192.168.1.3,,Apple macOS 10.14 (Mojave) (Darwin 18.2.0 - 18.6.0),tcp,7000,filtered,,,,,
